@@ -1,5 +1,16 @@
-name: AppImage
-on: [push, pull_request]
+on:
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: 'Dry run'
+        required: true
+        type: boolean
+      all:
+        description: 'Update all'
+        required: true
+        type: boolean
+  schedule:
+    - cron: '0 3 * * 0'
 
 jobs:
   Build:
