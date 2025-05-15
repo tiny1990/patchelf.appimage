@@ -51,6 +51,7 @@ jobs:
 
     - name: Package
       run: |
+        apt update && apt install libfuse2 -y
         wget -cq https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-${{ matrix.arch }}.AppImage
         chmod u+x appimagetool-${{ matrix.arch }}.AppImage
         ln -s patchelf.png AppDir/.DirIcon
