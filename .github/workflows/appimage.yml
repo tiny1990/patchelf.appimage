@@ -74,4 +74,5 @@ jobs:
           ./appimagetool-${{ matrix.arch }}.AppImage AppDir
         fi
         echo "PATCHELF_APPIMAGE=$(ls patchelf-*.AppImage)" >> $GITHUB_ENV
-
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
