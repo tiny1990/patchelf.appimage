@@ -74,26 +74,3 @@ jobs:
         fi
         echo "PATCHELF_APPIMAGE=$(ls patchelf-*.AppImage)" >> $GITHUB_ENV
 
-    - uses: actions/upload-artifact@v1
-      with:
-        name: appimages
-        path: ${{ env.PATCHELF_APPIMAGE }}
-
-  Release:
-    needs: Build
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/download-artifact@v1
-      with:
-        name: appimages
-
-    - run: ls -lha appimages
-
-    - name: Release
-      uses: marvinpinto/action-automatic-releases@latest
-      with:
-        automatic_release_tag: rolling
-        title: Rolling release
-        files: appimages/patchelf-*.AppImage
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
