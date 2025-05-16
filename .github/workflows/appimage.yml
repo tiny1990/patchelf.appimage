@@ -46,7 +46,7 @@ jobs:
         END
         )
         docker run --mount type=bind,source=$(pwd),target=/pwd                 \
-                   quay.io/pypa/manylinux_2_28 /bin/bash -c     \
+                   quay.io/pypa/manylinuxmanylinux2014_aarch64 /bin/bash -c     \
                    "${SCRIPT}"
 
     - name: Package
